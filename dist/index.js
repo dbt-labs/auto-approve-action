@@ -10122,7 +10122,7 @@ function approve(token, context, prNumber, reviewMessage) {
                             "Switching to the `pull_request_target` event typically resolves this issue.");
                         break;
                     case 404:
-                        core.setFailed(`${error.message}. This typically means the token you're using doesn't have ` +
+                        core.setFailed(`${error.message}. ${context.repo.repo} This typically means the token you're using doesn't have ` +
                             "access to this repository. Use the built-in `${{ secrets.GITHUB_TOKEN }}` token " +
                             "or review the scopes assigned to your personal access token.");
                         break;
