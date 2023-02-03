@@ -82,10 +82,9 @@ export async function approve(
           break;
         case 404:
           core.setFailed(
-            `${error.message}. This typically means the token you're using doesn't have ` +
+            `${error.message}. ${context.repo.repo} hi This typically means the token you're using doesn't have ` +
               "access to this repository. Use the built-in `${{ secrets.GITHUB_TOKEN }}` token " +
-              "or review the scopes assigned to your personal access token." +
-              `${context.repo.repo}`
+              "or review the scopes assigned to your personal access token."
           );
           break;
         case 422:
