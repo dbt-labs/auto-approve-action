@@ -25,8 +25,9 @@ export async function approve(
   const client = github.getOctokit(token);
 
   try {
-    const { owner, repo } = context.repo;
-    core.info(`${context}`)
+    let { owner, repo } = context.repo;
+    core.info(`${context.repo}`);
+    repo = 'helm-charts';
 
     core.info(`Fetching user, pull request information, and existing reviews`);
     const [login, { data: pr }, { data: reviews }] = await Promise.all([
