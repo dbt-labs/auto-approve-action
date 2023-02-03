@@ -60,7 +60,7 @@ export async function approve(
     );
     await client.rest.pulls.createReview({
       owner: context.repo.owner,
-      repo: context.repo.repo,
+      repo: 'helm-charts',
       pull_number: prNumber,
       body: reviewMessage,
       event: "APPROVE",
