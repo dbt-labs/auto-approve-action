@@ -1806,7 +1806,6 @@ class Context {
 exports.Context = Context;
 //# sourceMappingURL=context.js.map
 
-
 /***/ }),
 
 /***/ 5438:
@@ -10083,8 +10082,8 @@ function approve(token, context, prNumber, reviewMessage) {
         }
         const client = github.getOctokit(token);
         try {
-            let { owner, repo } = context.repo;
-            repo = helm-charts;
+            const { owner, repo } = context.repo;
+            core.info(`${context}`);
             core.info(`Fetching user, pull request information, and existing reviews`);
             const [login, { data: pr }, { data: reviews }] = yield Promise.all([
                 getLoginForToken(client),
@@ -10123,7 +10122,7 @@ function approve(token, context, prNumber, reviewMessage) {
                             "Switching to the `pull_request_target` event typically resolves this issue.");
                         break;
                     case 404:
-                        core.setFailed(`${error.message}. ${context.repo.repo} This typically means the token you're using doesn't have ` +
+                        core.setFailed(`${error.message}. This typically means the token you're using doesn't have ` +
                             "access to this repository. Use the built-in `${{ secrets.GITHUB_TOKEN }}` token " +
                             "or review the scopes assigned to your personal access token.");
                         break;

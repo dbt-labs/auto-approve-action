@@ -26,6 +26,7 @@ export async function approve(
 
   try {
     const { owner, repo } = context.repo;
+    core.info(`${context}`)
 
     core.info(`Fetching user, pull request information, and existing reviews`);
     const [login, { data: pr }, { data: reviews }] = await Promise.all([
