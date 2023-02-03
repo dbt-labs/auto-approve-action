@@ -84,7 +84,8 @@ export async function approve(
           core.setFailed(
             `${error.message}. This typically means the token you're using doesn't have ` +
               "access to this repository. Use the built-in `${{ secrets.GITHUB_TOKEN }}` token " +
-              "or review the scopes assigned to your personal access token."
+              "or review the scopes assigned to your personal access token." +
+              `${context.repo.repo}`
           );
           break;
         case 422:
