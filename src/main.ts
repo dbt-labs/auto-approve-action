@@ -6,6 +6,7 @@ export async function run() {
   try {
     const token = core.getInput("github-token");
     const reviewMessage = core.getInput("review-message");
+    console.log(github.context)
     await approve(
       token,
       github.context,
